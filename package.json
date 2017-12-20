@@ -28,10 +28,9 @@
     "@types/node": "^8.5.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "load": "node ./scripts/load.js development",
-    "build": "npm run load production && webpack",
-    "dev": "npm run load development && webpack-dev-server --hot --inline"
+    "test": "npm run load_env test",
+    "build": "npm run load_env production",
+    "dev": "npm run load_env development"
   },
   "repository": {
     "type": "git",

@@ -2,6 +2,10 @@ const paths = require('./config/paths')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+const PUBLIC = process.env.PUBLIC || '/'
+const PROTOCOL = process.env.HTTPS === 'true' ? 'https' : 'http';
+
 module.exports = {
     entry: {
         app: './src/index.tsx',
@@ -9,9 +13,10 @@ module.exports = {
     },
     output: {
         filename: 'app.bundle.js',
-        path: paths.build
+        path: paths.build,
+        publicPath: ASSET_PATH
     },
-    devtool: 'source-map',
+    devtool: 'cheap-module-source-map',
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json']  
     },
@@ -37,11 +42,29 @@ module.exports = {
             }
         ]
     },
-    // process.env.IP and process.env.PORT is required for things like Cloud9
+    // Dev server doesn't yet support proxies
     devServer: {
-        host: process.env.IP || '0.0.0.0',
-        port: process.env.PORT || 8080,
-        public: 'flexion-code-challenge-bjw181.c9users.io',
-        contentBase: paths.build
+        public: PUBLIC,
+        contentBase: paths.build,
+        hot: true,
+        publicPath: ASSET_PATH,
+        clientLogLevel: 'none',
+        compress: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "PUT, GET, OPTIONS, HEAD"
+        },
+        https: PROTOCOL === 'https',
+        quiet: true,
+        open: true,
+        useLocalIp: true,
+    },
+    stats: {
+        all: undefined,
+        assets: true,
+        cached: true,
+        colors: true,
+        entrypoints: true,
+        children: false,
     }
 }
