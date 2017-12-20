@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         filename: 'app.bundle.js',
-        path: paths.dist
+        path: paths.build
     },
     devtool: 'source-map',
     resolve: {
@@ -37,10 +37,11 @@ module.exports = {
             }
         ]
     },
+    // process.env.IP and process.env.PORT is required for things like Cloud9
     devServer: {
         host: process.env.IP || '0.0.0.0',
         port: process.env.PORT || 8080,
         public: 'flexion-code-challenge-bjw181.c9users.io',
-        contentBase: 'dist'
+        contentBase: paths.build
     }
 }

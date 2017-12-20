@@ -11,7 +11,7 @@ const resolvePath = relativePath => path.resolve(rootDir, relativePath);
 module.exports = {
     dotenv: resolvePath('.env'),
     tsConfig: resolvePath('./config/tsconfig.json'),
-    dist: resolvePath('dist'),
+    build: resolvePath('build'),
     idx: resolvePath('./src/index.tsx'),
     html: resolvePath('./public/index.html')
 }
