@@ -1,0 +1,52 @@
+{
+  "name": "tryangle",
+  "version": "0.1.0",
+  "description": "Find the classification of a triangle given the length of its sides",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.0.1",
+    "nodemon": "^1.13.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "save": "^2.3.2",
+    "source-map-loader": "^0.2.3",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.8.0",
+    "tslint-loader": "^3.5.3",
+    "tslint-react": "^3.2.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "@types/node": "^8.5.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "load": "node ./scripts/load.js development",
+    "build": "npm run load production && webpack",
+    "dev": "npm run load development && webpack-dev-server --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bwheel181/FlexionCodeReview.git"
+  },
+  "keywords": [
+    "triangle",
+    "calculator",
+    "geometry"
+  ],
+  "author": "Bryan Wheeler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bwheel181/FlexionCodeReview/issues"
+  },
+  "homepage": "https://github.com/bwheel181/FlexionCodeReview#readme"
+}
