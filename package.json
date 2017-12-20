@@ -28,9 +28,9 @@
     "@types/node": "^8.5.1"
   },
   "scripts": {
-    "test": "npm run load_env test",
-    "build": "npm run load_env production",
-    "dev": "npm run load_env development"
+    "test": "node ./scripts/load_env test",
+    "build": "node ./scripts/load_env production",
+    "dev": "node ./scripts/load_env development"
   },
   "repository": {
     "type": "git",
