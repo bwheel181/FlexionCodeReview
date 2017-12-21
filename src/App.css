@@ -1,3 +1,7 @@
-.main-app {
-    color: red;
+.app {
+    padding: 20;
+}
+
+.input {
+    width: 30;
 }

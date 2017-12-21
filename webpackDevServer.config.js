@@ -1,7 +1,8 @@
 const paths = require('./config/paths');
-
+const chalk = require('chalk');
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
-const public = process.env.PUBLIC || 'localhost'
+const public = process.env.PUBLIC || 'localhost';
+const port = process.env.PORT || 8080;
 
 // Development environment configuration. Here we:
 // 1) Configure the  Webpack Dev Server. Its worth noting that if you are working in a remote dev
@@ -11,31 +12,10 @@ const public = process.env.PUBLIC || 'localhost'
 
 module.exports = {
     public: public,
-    https: protocol === 'https',
     contentBase: paths.build,
     hot: true,
     inline: true,
     stats: {
         colors: true
-    }
+    },
 }
-
-    // // Dev server doesn't yet support proxies
-    // devServer: {
-    //     // public: PUBLIC,
-    //     // contentBase: paths.build,
-    //     // hot: true,
-    //     // publicPath: ASSET_PATH,
-    //     // clientLogLevel: 'none',
-    //     // compress: true,
-    //     // headers: {
-    //     //     "Access-Control-Allow-Origin": "*",
-    //     //     "Access-Control-Allow-Methods": "PUT, GET, OPTIONS, HEAD"
-    //     // },
-    //     // https: PROTOCOL === 'https',
-    //     // quiet: true,
-    //     // open: true,
-    //     // useLocalIp: true,
-    //     contentBase: paths.build,
-    //     public: process.env.PUBLIC || 'localhost',
-    // },

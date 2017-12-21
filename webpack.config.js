@@ -19,6 +19,7 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js', '.json']  
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({ inject: true, template: './public/index.html' }),
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
         new webpack.DefinePlugin({
@@ -42,6 +43,10 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,
                 loader: 'ts-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     }

@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "outDir": "./cli/",
+    },
+    "include": [
+        "util/command.ts"    
+    ],
+}

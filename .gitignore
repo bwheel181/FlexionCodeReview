@@ -6,3 +6,6 @@
 
 # misc
 .DS_Store
+.env.developent
+.env
+.env.production
