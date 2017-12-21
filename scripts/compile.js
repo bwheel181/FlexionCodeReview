@@ -15,22 +15,23 @@ if (process.env.NODE_ENV === 'production') {
     Webpack(webpackConfig, (err, stats) => {
         if (err) {
             console.log(chalk.bold.red('Fatal error was encountered during the build'));
-            console.log(chalk.red('\t' + err));
+            console.log(chalk.red(err));
         } else if (stats.hasErrors()) {
             console.log(chalk.bold.red('Errors were encountered during the build'));
             stats.compilation.errors.forEach(error => {
-                console.log(chalk.bold.red('\t' + error.message));
+                console.log(chalk.bold.red(error.message));
             })
         } else if (stats.hasWarnings()) {
             console.log(chalk.bold.yellow('Warnings were encountered during the build'));
-            stats.compilation.errors.forEach(error => {
-                console.log(chalk.bold(chalk.yellow('\t' + error.message)));
+            stats.compilation.warnings.forEach(warning => {
+                console.log(chalk.bold(chalk.yellow(warning.message)));
             })
         } else {
             console.log(chalk.bold.green(
                 '\nWebpack has finished bundling the source files without errors\n'
             ));
         }
+        
     });
 //
 // Development configuration. We compile as usual but include a webpack development server

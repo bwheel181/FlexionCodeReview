@@ -6,6 +6,6 @@
 
 # misc
 .DS_Store
-.env.developent
+.env.development
 .env
 .env.production

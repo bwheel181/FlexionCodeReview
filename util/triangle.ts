@@ -25,7 +25,7 @@
   and flexible. Then we will define a function to determine if a shape can be a triangle. 
 */
 import { Side, Shape } from './interfaces';
-import { ShapeType } from './types'
+import { ShapeType } from './types';
 
 export default class Triangle implements Shape {
     private sides: Side[];
@@ -33,7 +33,7 @@ export default class Triangle implements Shape {
     constructor(sides: Side[]) {
         this.sides = sides;
         if (!isTriangle(sides)) {
-            throw new Error('Shape cannot be a triangle')
+            throw new Error('Shape cannot be a triangle');
         }
     }
     
