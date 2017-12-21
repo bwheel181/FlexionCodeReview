@@ -1,6 +1,7 @@
 import Triangle from '../util/triangle';
 import { Side } from '../util/interfaces';
 import * as React from 'react';
+import './App.css';
 
 interface State {
     triangle: string;
@@ -9,7 +10,7 @@ interface State {
 export default class App extends React.Component<{}, State> { 
     constructor(props: {}) {
         super(props);
-        this.state = { triangle: '' };
+        this.state = { triangle: 'Equilateral' };
     }
 
     public handleOnChange(event: React.ChangeEvent<HTMLInputElement>): void {
@@ -38,10 +39,12 @@ export default class App extends React.Component<{}, State> {
         return (
             <div className="app">
                 <div>
-                    <h4>Input a comma separated list of side values</h4>
+                    <h2>Welcome to <span className="title-span">TryAngle!</span></h2>
+                    <h5>Input a comma separated list of lengths</h5>
                     <input 
                         className="input" 
                         onChange={e => this.handleOnChange(e)}
+                        placeholder="3,3,3"
                     />
                 </div>
                 <div>

@@ -1,7 +1,13 @@
 .app {
-    padding: 20;
+    padding: 15px;
 }
 
-.input {
-    width: 30;
+.app input {
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+span {
+    color: red;
+    
 }
