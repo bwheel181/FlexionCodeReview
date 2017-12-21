@@ -2,9 +2,7 @@ const paths = require('./config/paths')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-const ASSET_PATH = process.env.ASSET_PATH || '/';
-const PUBLIC = process.env.PUBLIC || '/'
-const PROTOCOL = process.env.HTTPS === 'true' ? 'https' : 'http';
+const assetPath = process.env.ASSET_PATH || '/';
 
 module.exports = {
     entry: {
@@ -14,7 +12,7 @@ module.exports = {
     output: {
         filename: 'app.bundle.js',
         path: paths.build,
-        publicPath: ASSET_PATH
+        publicPath: assetPath
     },
     devtool: 'cheap-module-source-map',
     resolve: {
@@ -23,6 +21,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({ inject: true, template: './public/index.html' }),
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+            }
+        }),
     ],
     module: {
         rules: [
@@ -41,30 +44,5 @@ module.exports = {
                 loader: 'ts-loader'
             }
         ]
-    },
-    // Dev server doesn't yet support proxies
-    devServer: {
-        public: PUBLIC,
-        contentBase: paths.build,
-        hot: true,
-        publicPath: ASSET_PATH,
-        clientLogLevel: 'none',
-        compress: true,
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "PUT, GET, OPTIONS, HEAD"
-        },
-        https: PROTOCOL === 'https',
-        quiet: true,
-        open: true,
-        useLocalIp: true,
-    },
-    stats: {
-        all: undefined,
-        assets: true,
-        cached: true,
-        colors: true,
-        entrypoints: true,
-        children: false,
     }
 }
