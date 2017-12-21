@@ -40,4 +40,4 @@ PUBLIC=YOUR_PUBLIC_FACING_IP
 The compiler will load any environment variables in the .env files and use those to configure the server
 
 ### Known issues
-- The browser interface was completed as an added feature and isn't optimized for inputs. For example it won't handle floats. The command line interface will handle floats however.
+- The browser interface was completed quickly as an added feature and isn't optimized for inputs. For example it won't handle floats. The command line interface will handle floats however.
