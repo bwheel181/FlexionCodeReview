@@ -40,7 +40,7 @@ export default class Triangle implements Shape {
     public getShapeType(): ShapeType {
         if (this.sides[0].length === this.sides[1].length && this.sides[1].length === this.sides[2].length) {
             return ShapeType.EquilateralTriangle;
-        } else if (this.sides[0].length === this.sides[1].length || this.sides[1].length === this.sides[2].length) {
+        } else if (this.sides[0].length === this.sides[1].length || this.sides[1].length === this.sides[2].length || this.sides[0].length === this.sides[2].length) {
             return ShapeType.IsoscelesTriangle;
         } else {
             return ShapeType.ScaleneTriangle;
